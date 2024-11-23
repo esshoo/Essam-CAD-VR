@@ -115,3 +115,7 @@ viewer.goToHomeView();
 <img src="public/demo/images/snapshots/pano_switch_panos.gif" width="400">
 - Switch between decorations
 <img src="public/demo/images/snapshots/pano_switch_decorations.gif" width="400">
+
+
+## Contact
+yanzexuan@163.com
