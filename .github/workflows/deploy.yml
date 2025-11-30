@@ -21,7 +21,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     
-    # هذه الخطوة مهمة جداً: تمنع توقف البناء بسبب التحذيرات
     env:
       CI: false
 
@@ -33,10 +32,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'npm'
+          # قمنا بحذف سطر cache: 'npm' من هنا لحل المشكلة
 
       - name: Install dependencies
-        # نستخدم --legacy-peer-deps لحل تعارض المكتبات القديمة
         run: npm install --legacy-peer-deps
 
       - name: Build
@@ -48,7 +46,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # المسار الصحيح لهذا المشروع هو build
           path: './build'
 
       - name: Deploy to GitHub Pages
